@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Ignore Django migration files (but keep __init__.py so packages remain)
+**/migrations/*.py
+**/migrations/*.pyc
+!**/migrations/__init__.py
+
+# Firebase service account json (example filename — keep exact name)
+aqua-d17a0-firebase-adminsdk-fbsvc-0b4ca8091b.json
+
+# Environment files
+.env
+
