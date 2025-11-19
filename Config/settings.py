@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # coustom apps can be added here
     'users.apps.UsersConfig',
     'legal_pages.apps.LegalPagesConfig',
+    'water_goal.apps.WaterGoalConfig',
 ]
 
 AUTH_USER_MODEL = 'users.User'
