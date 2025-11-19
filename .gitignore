@@ -213,6 +213,7 @@ __marimo__/
 
 # Firebase service account json (example filename — keep exact name)
 aqua-d17a0-firebase-adminsdk-fbsvc-0b4ca8091b.json
+firebase_service_account.json.example
 
 # Environment files
 .env
