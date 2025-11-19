@@ -92,6 +92,21 @@ class User(AbstractBaseUser, PermissionsMixin):
         blank=True,
         help_text=_("User's activity level")
     )
+
+    SLEEP_TIME_CHOICES = [
+        ('less_than_6', _('Less than 6 hours')),
+        ('6_to_8', _('6-8 hours')),
+        ('more_than_8', _('More than 8 hours')),
+    ]
+
+    sleep_time = models.CharField(
+        _('sleep time'),
+        max_length=50,
+        choices=SLEEP_TIME_CHOICES,
+        null=True,
+        blank=True,
+        help_text=_("User's average daily sleep time")
+    )
     
     # Status fields
     is_active = models.BooleanField(
