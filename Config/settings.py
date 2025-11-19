@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # coustom apps can be added here
     'users.apps.UsersConfig',
+    'legal_pages.apps.LegalPagesConfig',
 ]
 
 AUTH_USER_MODEL = 'users.User'
