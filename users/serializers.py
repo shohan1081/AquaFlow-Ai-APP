@@ -56,11 +56,13 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['name', 'email', 'date_of_birth', 'password', 'confirm_password']
+        fields = ['name', 'email', 'date_of_birth', 'password', 'confirm_password', 'weight', 'person_activity']
         extra_kwargs = {
             'name': {'required': True},
             'email': {'required': True},
             'date_of_birth': {'required': True},
+            'weight': {'required': False},
+            'person_activity': {'required': False},
         }
     
     def validate_name(self, value):
@@ -130,6 +132,8 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             name=validated_data['name'],
             password=validated_data['password'],
             date_of_birth=validated_data.get('date_of_birth'),
+            weight=validated_data.get('weight'),
+            person_activity=validated_data.get('person_activity'),
             is_active=False  # User is inactive until OTP verification
         )
         
@@ -369,6 +373,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'gender',
             'occupation',
             'country',
+            'weight',
+            'person_activity',
             'age',
             'bio',
             'profile_picture',
@@ -436,7 +442,7 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['name', 'date_of_birth', 'gender', 'occupation', 'country', 'bio', 'profile_picture']
+        fields = ['name', 'date_of_birth', 'gender', 'occupation', 'country', 'bio', 'profile_picture', 'weight', 'person_activity']
     
     def validate_name(self, value):
         """Validate name"""

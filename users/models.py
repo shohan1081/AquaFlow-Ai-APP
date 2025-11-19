@@ -73,6 +73,26 @@ class User(AbstractBaseUser, PermissionsMixin):
         help_text=_("User's country")
     )
     
+    weight = models.IntegerField(
+        _('weight'),
+        null=True,
+        blank=True,
+        help_text=_("User's weight in kilograms")
+    )
+
+    person_activity = models.CharField(
+        _('person activity'),
+        max_length=100,
+        choices=[
+            ('low', 'Low'),
+            ('moderate', 'Moderate'),
+            ('high', 'High'),
+        ],
+        null=True,
+        blank=True,
+        help_text=_("User's activity level")
+    )
+    
     # Status fields
     is_active = models.BooleanField(
         _('active'),
