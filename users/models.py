@@ -107,6 +107,21 @@ class User(AbstractBaseUser, PermissionsMixin):
         blank=True,
         help_text=_("User's average daily sleep time")
     )
+
+    CLIMATE_CHOICES = [
+        ('mid', _('Mid')),
+        ('cold', _('Cold')),
+        ('hot', _('Hot')),
+    ]
+
+    climate = models.CharField(
+        _('climate'),
+        max_length=50,
+        choices=CLIMATE_CHOICES,
+        null=True,
+        blank=True,
+        help_text=_("User's typical climate")
+    )
     
     # Status fields
     is_active = models.BooleanField(
